@@ -26,4 +26,3 @@ fi
 
 
 cat /proc/swaps
-cat /proc/meminfo | grep Swap

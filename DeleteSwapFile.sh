@@ -10,10 +10,10 @@ if [ $? -eq 0 ]; then
         echo "3" > /proc/sys/vm/drop_caches
         swapoff -a
         rm -f /swapfile
+        echo 'Swapfile Removed.'
 else
         echo 'Swapfile not found No changes made.'
 fi
 
-# output results to terminal
 cat /proc/swaps
-cat /proc/meminfo | grep Swap
+

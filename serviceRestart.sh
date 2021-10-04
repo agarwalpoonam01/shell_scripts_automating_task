@@ -2,9 +2,13 @@
 
 service_name=$1
 sudo systemctl status $service_name
-
-if [ $? -ne 0 ]; then
-	`sudo systemctl  restart $service_name`
-else
+status=$?
+echo $status
+if [ $status -eq 0 ]; then
 	echo "service is already running"
+elif [ $status -eq 4 ]; then
+	echo "service doesnot exist"
+elif [ $status -eq 3 ]; then
+	echo "starting service $service_name"
+	`sudo systemctl  restart $service_name`
 fi

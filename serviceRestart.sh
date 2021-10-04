@@ -9,9 +9,9 @@ else
 	status=$?
 	echo $status
 	if [ $status -eq 0 ]; then
-		echo "service is already running"
+		echo "service $service_name is already running"
 	elif [ $status -eq 4 ]; then
-		echo "service doesnot exist"
+		echo "service $service_name doesnot exist"
 	elif [ $status -eq 3 ]; then
 		echo "starting service $service_name"
 		`sudo systemctl  restart $service_name`
